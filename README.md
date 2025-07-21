@@ -62,7 +62,7 @@
 
 | 주요 화면 | 캡처                     |
 | ----- | -------------------------- |
-| 예시시 화면  | ![home](Roulette\RouletteTestImage.png) |
+| 예시 화면  | ![home](RouletteTestImage.png) |
 
 
 ---
