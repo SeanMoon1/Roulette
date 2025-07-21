@@ -1,0 +1,224 @@
+/* 심플 룰렛 스타일 - 네이비, 화이트, 민트(포인트) 3색 조합 */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f3f7fa;
+  color: #1a2236;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: #1a2236;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.roulette-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.roulette-canvas-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#pointer-arrow {
+  width: 0;
+  height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-top: 0 solid transparent;
+  border-bottom: 36px solid #1a2236;
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  transform: translateX(-50%) rotate(180deg);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.roulette-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+.roulette-controls input[type="text"] {
+  margin-bottom: 0;
+}
+.roulette-controls button {
+  margin-bottom: 0;
+}
+
+#win-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #1a2236;
+  border: 4px solid #2de2c5;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(26,34,54,0.18);
+  padding: 48px 64px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  z-index: 1000;
+  text-align: center;
+  animation: popup-bounce 0.5s;
+}
+@keyframes popup-bounce {
+  0% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+  60% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+canvas#roulette {
+  flex-shrink: 0;
+  display: block;
+  margin: 24px auto 16px auto;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 24px rgba(26,34,54,0.08);
+  border: 4px solid #1a2236;
+}
+
+div {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 8px 10px;
+  border: 1.5px solid #1a2236;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-right: 4px;
+  outline: none;
+  background: #fff;
+  color: #1a2236;
+  transition: border 0.2s;
+}
+input[type="text"]:focus, input[type="number"]:focus {
+  border: 1.5px solid #2de2c5;
+}
+
+button {
+  background: #1a2236;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 15px;
+  margin: 0 2px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+button:hover, button:focus {
+  background: #2de2c5;
+  color: #1a2236;
+}
+
+#add-btn {
+  background: #2de2c5;
+  color: #1a2236;
+  font-weight: 600;
+}
+#add-btn:hover, #add-btn:focus {
+  background: #1a2236;
+  color: #2de2c5;
+}
+
+.item-list-panel {
+  min-width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(26,34,54,0.08);
+  padding: 24px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.item-input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 4px;
+}
+
+#item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 16px auto;
+  max-width: 320px;
+  margin-bottom: 0;
+}
+#item-list li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 8px 8px;
+  margin-bottom: 8px;
+  background: #f8fafc;
+  border: 1.5px solid #1a2236;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(26,34,54,0.04);
+}
+#item-list span {
+  margin: 0 2px;
+}
+#item-list button {
+  background: #2de2c5;
+  color: #1a2236;
+  padding: 4px 10px;
+  font-size: 15px;
+  border-radius: 50%;
+  min-width: 28px;
+  min-height: 28px;
+  font-weight: bold;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+#item-list button:hover {
+  background: #1a2236;
+  color: #2de2c5;
+}
+#item-list button:active {
+  background: #1a2236;
+  color: #fff;
+}
+
+.item-list-panel #add-btn {
+  background: #2de2c5;
+  color: #1a2236;
+  font-weight: 600;
+}
+.item-list-panel #add-btn:hover, .item-list-panel #add-btn:focus {
+  background: #1a2236;
+  color: #2de2c5;
+}
+
+.item-list-panel #start-btn, .item-list-panel #stop-btn {
+  min-width: 80px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* 룰렛 섹터 색상 3색만 사용하도록 JS에서 맞춰주세요 */
