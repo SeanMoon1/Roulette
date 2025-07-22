@@ -14,7 +14,7 @@ const addBtn = document.getElementById('add-btn');
 const listBox = document.getElementById('item-list');
 const startBtn = document.getElementById('start-btn');
 const stopBtn = document.getElementById('stop-btn');
-// upBtn, downBtn 관련 코드 완전히 제거
+
 
 // 룰렛 그리기
 function drawRoulette() {
@@ -64,7 +64,7 @@ function drawRoulette() {
 
 // 색상 생성
 function getColor(i) {
-  // 룰렛 배경색 은은한 파스텔톤
+  // 룰렛 배경색 파스텔톤
   return '#e6f0fa';
 }
 
@@ -155,8 +155,6 @@ itemInput.addEventListener('keydown', (e) => {
     addBtn.onclick();
   }
 });
-
-// 항목 수량 조절 (입력창 옆 버튼 관련 코드 삭제)
 
 // 룰렛 돌리기
 startBtn.onclick = () => {
